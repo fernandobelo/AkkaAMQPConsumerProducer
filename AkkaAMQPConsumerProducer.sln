@@ -1,0 +1,29 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AkkaAMQPConsumerProducer", "AkkaAMQPConsumerProducer\AkkaAMQPConsumerProducer.csproj", "{7B870010-FA1C-4780-BB04-C817C983A782}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AkkaAMQPConsumerProducer.Core", "AkkaAMQPConsumerProducer.Core\AkkaAMQPConsumerProducer.Core.csproj", "{5A86D42C-2521-44B1-85E8-3C5C46EFE8D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AkkaAMQPConsumerProducer.Infrastructure", "AkkaAMQPConsumerProducer.Infrastructure\AkkaAMQPConsumerProducer.Infrastructure.csproj", "{AF12ED91-A378-42EE-8DC8-55B989A30526}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7B870010-FA1C-4780-BB04-C817C983A782}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B870010-FA1C-4780-BB04-C817C983A782}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B870010-FA1C-4780-BB04-C817C983A782}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B870010-FA1C-4780-BB04-C817C983A782}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A86D42C-2521-44B1-85E8-3C5C46EFE8D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A86D42C-2521-44B1-85E8-3C5C46EFE8D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A86D42C-2521-44B1-85E8-3C5C46EFE8D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A86D42C-2521-44B1-85E8-3C5C46EFE8D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF12ED91-A378-42EE-8DC8-55B989A30526}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF12ED91-A378-42EE-8DC8-55B989A30526}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF12ED91-A378-42EE-8DC8-55B989A30526}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF12ED91-A378-42EE-8DC8-55B989A30526}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
