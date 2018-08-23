@@ -7,36 +7,42 @@ using Microsoft.Extensions.Options;
 
 using Akka.Actor;
 
-using RabbitMQ.Client;
-
 using AkkaAMQPConsumerProducer.Core.Commands;
+using AkkaAMQPConsumerProducer.Core.Interfaces;
 using AkkaAMQPConsumerProducer.Infrastructure.Options;
+using AkkaAMQPConsumerProducer.Infrastructure.Services;
 
 namespace AkkaAMQPConsumerProducer.Infrastructure.Actors
 {
+
     public class BrokerSenderActor : ReceiveActor
     {
         private readonly ILogger<BrokerSenderActor> _logger;
         private readonly BrokerOptions _options;
+        private IBrokerSender _brokerSender;
 
-        public BrokerSenderActor(ILogger<BrokerSenderActor> logger, IOptions<BrokerOptions> options)
+        public BrokerSenderActor(ILogger<BrokerSenderActor> logger, IOptions<BrokerOptions> options, IBrokerSender brokerSender)
         {
-            _logger = logger;
-            _options = options.Value;
-
-            _logger.LogDebug("Starting broker sender actor");
-
-            var factory = new ConnectionFactory() { HostName = _options.HostName, VirtualHost = _options.VirtualHost, UserName = _options.UserName, Password = _options.Password };
-            var connection = factory.CreateConnection();
-
-            var channel = connection.CreateModel();
-
-            Receive<SendMessage>(msg =>
+            try
             {
-                _logger.LogDebug("Got SendMessage");
+                _logger = logger;
+                _options = options.Value;
+                _brokerSender = brokerSender;
 
-                channel.BasicPublish(_options.ExchangeName, "", null, Encoding.UTF8.GetBytes(msg.Payload));
-            });
+                _logger.LogDebug("Starting broker sender actor");
+
+                Receive<SendMessage>(msg =>
+                {
+                    _logger.LogDebug("Got SendMessage");
+
+                    _brokerSender.Publish(msg.Payload);
+                });
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "error while starting brokersenderactor");
+            }
         }
-    }
+   }
 }
